@@ -25,3 +25,4 @@ print(5 >= 5)
 # EN JS el or es ||
 # EN JS el not es ! 
 print(not((10<20) and (50>80)))
+
