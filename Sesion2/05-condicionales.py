@@ -44,6 +44,40 @@ persona = {
 # Si, la persona es _____ y su nacionalidad es ______
 # La persona es ______ y su nacionadad es ______
 if (persona['nombre'] == 'Raul' and persona['nacionalidad']== 'Peruana'):
-    print('Si, la persona es', persona['nombre'], 'y su nacionalidad es:', persona['nacionalidad'])
+    print(f'Si, la persona es{ persona["nombre"] } y su nacionalidad es:{persona["nacionalidad"]}')
 else:
-    print('No, La persona es', persona['nombre'], 'y su nacionalidad es:', persona['nacionalidad'])    
+    print(f"No, La persona es {persona['nombre']} y su nacionalidad es: {persona['nacionalidad']}")    
+
+# for
+# sirve para iterar un numero limitado de veces y tiene un inicio o un numero de arranque y un fin
+# generalmente el for se usa para iterar colecciones de datos ORDENADAS pero se puede usar como cualquier for
+meses= ['Enero', 'Febrero', 'Marzo', 'Abril']
+
+# para ir desde la posicion 1 hasta el final
+for mes in meses[1:]:
+    print(mes)
+
+# itera todos los meses
+for mes in meses:
+    if mes == 'Enero':
+        print('Vamos a la playa 🏖️')
+    print(mes)
+
+# for(let i=0; i< 10; i++){....}
+# en el range podemos pasar hasta 3 parametros
+# range(n) => el limite <n
+# range(n,m) => n el inicio, m el limite (<m)
+# range(n,m,o) => n el inicio, m el limite (<m), o cuantos se suma en cada ciclo
+for numero in range(5,10, 2):
+    print(numero)
+
+# len() => saca la longitud de la variable
+# para convertir de un tipo de dato a otro es necesario tener las siguientes consideraciones:
+# * tiene que ser un tipo masomenos coherente (no tratar de convertir de una letra a un numero)
+# str(121) | int(12.5) | bool(0) | float(5)
+
+# para ir desde la mitad del arreglo al final
+print(int(10.5))
+for numero in range(int(len(meses)/2),len(meses)):
+    print(numero)
+    print(meses[numero])
