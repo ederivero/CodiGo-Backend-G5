@@ -81,3 +81,30 @@ print(int(10.5))
 for numero in range(int(len(meses)/2),len(meses)):
     print(numero)
     print(meses[numero])
+
+# TAREAAAAAAA
+personas = [
+    {
+    'nombre': 'Adriana',
+    'edad': 25
+    },
+    {
+    'nombre': 'Nicolas',
+    'edad': 15
+    },
+    {
+    'nombre': 'Maria',
+    'edad': 23
+    },
+    {
+    'nombre': 'Guillermo',
+    'edad': 10
+    }
+]
+# 1. Cuantas personas tienen mas de 20 años  > 2
+# 2. Que personas son las que tienen menos de 20 años > Las personas son Nicolas, Guillermo
+# HINT: crear una lista donde se almacenen los nombres de las personas que tienen menos de 20, un contador para contar a las personas de mas de 20
+
+# el parametro end sirve para indicar como queremos que termine la impresion de pantalla, si le modificamos entonces ya no hara el clasico SALTO DE LINEA sino que terminara con dicho caracter
+print('aaaaaa',end='')
+print('bbbbbbbb')
