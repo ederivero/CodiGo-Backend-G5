@@ -104,7 +104,16 @@ personas = [
 # 1. Cuantas personas tienen mas de 20 años  > 2
 # 2. Que personas son las que tienen menos de 20 años > Las personas son Nicolas, Guillermo
 # HINT: crear una lista donde se almacenen los nombres de las personas que tienen menos de 20, un contador para contar a las personas de mas de 20
-
+personas_mas_de_20 = 0
+personas_menos_de_20 = 'Las personas son: '
+for persona in personas:
+    if(persona['edad'] > 20):
+        personas_mas_de_20 += 1
+    else:
+        personas_menos_de_20 += persona['nombre'] + ' '
+    
+print('Hay',personas_mas_de_20,'personas con mas de 20 años')
+print(personas_menos_de_20 )
 # el parametro end sirve para indicar como queremos que termine la impresion de pantalla, si le modificamos entonces ya no hara el clasico SALTO DE LINEA sino que terminara con dicho caracter
 print('aaaaaa',end='')
 print('bbbbbbbb')
