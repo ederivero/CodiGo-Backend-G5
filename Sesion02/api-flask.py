@@ -1,5 +1,4 @@
 from flask import Flask, request
-from flask.helpers import make_response
 # el request nos da toda la informacion del cliente
 
 app = Flask(__name__)
