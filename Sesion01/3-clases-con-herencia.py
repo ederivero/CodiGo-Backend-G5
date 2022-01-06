@@ -29,6 +29,8 @@ class VehiculoVolador(Vehiculo):
     def aterrizar(self):
         self.vuela = False
 
+    def estado(self):
+        'el vehiculo es de color: .... modelo: .... traccion: ... velocidad: ... y esta volando / esta aterrizado'
 class VehiculoOffRoad(VehiculoVolador):
     def __init__(self, color, modelo, traccion, vuela=False, sumergido=False):
         super().__init__(color,modelo,traccion, vuela)
@@ -37,7 +39,7 @@ class VehiculoOffRoad(VehiculoVolador):
 obj_vehiculo = Vehiculo('verde','rx5', '4x4')
 obj_vehiculo_volador = VehiculoVolador('blanco','xyz','4x2')
 obj_vehiculo_volador.volar()
-print(obj_vehiculo_volador.vuela)
+print(obj_vehiculo_volador.vuela) # debe lanzar un error que no existe
 print(obj_vehiculo_volador.color)
 
 # print(obj_vehiculo.vuela)
@@ -46,3 +48,5 @@ obj_vehiculo_offroad = VehiculoOffRoad('azul','asda','4x2')
 obj_vehiculo_offroad.acelerar()
 obj_vehiculo_offroad.desacelerar()
 obj_vehiculo_offroad.volar()
+
+# Primero que el atributo vuela sea privado y luego tener un metodo llamado estado en el cual me indique cual es el estado del vehiculo, que me diga su color, modelo, traccion, velocidad y si esta volando o si esta aterrizado
