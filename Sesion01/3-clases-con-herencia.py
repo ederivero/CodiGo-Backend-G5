@@ -28,4 +28,21 @@ class VehiculoVolador(Vehiculo):
     
     def aterrizar(self):
         self.vuela = False
-    
+
+class VehiculoOffRoad(VehiculoVolador):
+    def __init__(self, color, modelo, traccion, vuela=False, sumergido=False):
+        super().__init__(color,modelo,traccion, vuela)
+
+
+obj_vehiculo = Vehiculo('verde','rx5', '4x4')
+obj_vehiculo_volador = VehiculoVolador('blanco','xyz','4x2')
+obj_vehiculo_volador.volar()
+print(obj_vehiculo_volador.vuela)
+print(obj_vehiculo_volador.color)
+
+# print(obj_vehiculo.vuela)
+
+obj_vehiculo_offroad = VehiculoOffRoad('azul','asda','4x2')
+obj_vehiculo_offroad.acelerar()
+obj_vehiculo_offroad.desacelerar()
+obj_vehiculo_offroad.volar()
