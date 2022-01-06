@@ -15,7 +15,7 @@ class Vehiculo:
     def desacelerar(self):
         '''Metodo que desacelera el vehiculo en 20km/h'''
         self.__velocidad -= 20
-        self.__prueba('cualquiera')
+        self.__prueba()
         return self.__velocidad
     
     def __prueba(self):

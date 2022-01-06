@@ -35,7 +35,7 @@ class VehiculoVolador(Vehiculo):
     def estado(self):
         estado_volando = 'esta volando' if self.__vuela else 'esta aterrizado'
         return 'el vehiculo es de color: {} modelo: {} traccion: {} velocidad: {} y {}'.format(self.color, self.modelo, self.traccion, self.get_velocidad(), estado_volando)
-        
+
 class VehiculoOffRoad(VehiculoVolador):
     def __init__(self, color, modelo, traccion, vuela=False, sumergido=False):
         super().__init__(color,modelo,traccion, vuela)
@@ -57,3 +57,9 @@ obj_vehiculo_offroad.volar()
 
 # Primero que el atributo vuela sea privado y luego tener un metodo llamado estado en el cual me indique cual es el estado del vehiculo, que me diga su color, modelo, traccion, velocidad y si esta volando o si esta aterrizado
 print(obj_vehiculo_volador.estado())
+
+# isinstance() > devolvera True si es que la instancia es de la clase, si esa instancia es de una clase que esta heredando de otra clase entonces tambien sera instancia de esa clase heredada
+print(isinstance(obj_vehiculo_offroad, Vehiculo))
+
+# issubclass() > devolvera True si es que la primera clase es herencia de la segunda clase 
+print(issubclass(VehiculoOffRoad, Vehiculo))
