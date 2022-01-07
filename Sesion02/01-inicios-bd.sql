@@ -1,4 +1,6 @@
 CREATE DATABASE pruebas;
+
+USE pruebas;
 -- https://dev.mysql.com/doc/refman/8.0/en/data-types.html
 CREATE TABLE personas(
 	-- Ahora definimos las columnas pertenecientes a esta tabla
@@ -10,3 +12,25 @@ CREATE TABLE personas(
     sexo ENUM('MASCULINO','FEMENINO','OTRO','HELICOPTERO'), -- solamente podra tener los valores definidos en el parentesis
     estado BOOL -- o sera true o false
 );
+
+-- sirve para modificar el nombre de una columna
+-- ALTER TABLE personas RENAME COLUMN nombre TO nombrecito;
+
+
+-- AHORA INGRESAREMOS LOS DATOS
+-- DML (Data Manipulation Language) Lenguaje de Manipulacion de Datos
+-- INSERT : ingresar nueva informacion a una tabla en especifico
+INSERT INTO personas (id, nombre, dni, fecha_nacimiento, sexo, estado, created_at) VALUES
+                     (1, 'Eduardo', '73500749', '1992-08-01', 'M', true, now());
+
+
+
+
+
+
+
+
+
+
+
+
