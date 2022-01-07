@@ -21,13 +21,21 @@ CREATE TABLE personas(
 -- DML (Data Manipulation Language) Lenguaje de Manipulacion de Datos
 -- INSERT : ingresar nueva informacion a una tabla en especifico
 INSERT INTO personas (id, nombre, dni, fecha_nacimiento, sexo, estado, created_at) VALUES
-                     (1, 'Eduardo', '73500749', '1992-08-01', 'M', true, now());
+                     (1, 'Eduardo', '73500749', '1992-08-01', 'MASCULINO', true, now());
 
 
+INSERT INTO personas (id, nombre, dni, fecha_nacimiento, sexo, estado, created_at) VALUES
+                     (1, 'Rogelio', '15964657', '1992-08-01', 'masculino', true, now());
 
+-- SELECT : leer los datos de una determinada tabla o tablas
+SELECT nombre, id FROM personas;
 
+-- DDL (Data Definition Language) Lenguaje de Definicion de Datos
+-- CREATE : Crear tablas , bases de datos y funciones y procedimientos almacenados entre otros
 
-
+-- DROP: Eliminar completamente toda una tabla , una base de datos, una estructura 
+-- esto NO elimina solamente el contenido de la tabla SINO que elimina toda su estructura
+DROP TABLE personas;
 
 
 
