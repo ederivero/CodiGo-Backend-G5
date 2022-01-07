@@ -28,10 +28,27 @@ INSERT INTO personas (id, nombre, dni, fecha_nacimiento, sexo, estado, created_a
 
 
 INSERT INTO personas (id, nombre, dni, fecha_nacimiento, sexo, estado, created_at) VALUES
-                     (1, 'Rogelio', '15964657', '1992-08-01', 'masculino', true, now());
+                     (2, 'Rogelio', '15964657', '1992-08-01', 'masculino', true, now());
+
+INSERT INTO personas (nombre, dni, fecha_nacimiento, sexo, estado, created_at) VALUES
+                     ('Ana Maria', '15964757', '1992-08-01', 'femenino', false, now());
+                     
 
 -- SELECT : leer los datos de una determinada tabla o tablas
 SELECT nombre, id FROM personas;
+SELECT * FROM personas WHERE nombre='eduardo' and estado = true;
+SELECT * FROM personas WHERE nombre='eduardo' or estado = false;
+
+SELECT * FROM personas ORDER BY sexo DESC;
+
+
+
+
+
+
+
+
+
 
 -- DDL (Data Definition Language) Lenguaje de Definicion de Datos
 -- CREATE : Crear tablas , bases de datos y funciones y procedimientos almacenados entre otros
@@ -43,5 +60,27 @@ DROP TABLE personas;
 
 
 
+-- CREAR UNA TABLA LLAMADA ACTIVIDADES EN LA CUAL TENGAMOS EL ID, NOMBRE, INTENSIDAD Y SU 
+-- ESTADO, EL ID TIENE QUE SER PK Y UNIQUE, EL NOMBRE NO PUEDE EXCEDER LOS 20 CARACTERES,
+-- LA INTENSIDAD DEBE SER BAJA, MEDIA, ALTA O MUY ALTA Y SU ESTADO V O F
+
+CREATE TABLE actividades (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+    nombre VARCHAR(20),
+    intensidad ENUM('baja','media','alta', 'muy alta'),
+    estado BOOL,
+    persona_id INT, 
+    -- para crear las relaciones
+    FOREIGN KEY(persona_id) REFERENCES personas(id)
+);
+
+-- NOTA: NO HACER LO SIGUIENTE SI YA TIENES LA RELACION ENTRE ACTIVIDADES Y PERSONAS
+-- SIRVE PARA AGREGAR UNA NUEVA COLUMNA
+-- ALTER TABLE actividades ADD persona_id INT;
+-- SIRVE PARA AGREGAR UNA NUEVA RELACION FK EN UNA TABLA
+-- ALTER TABLE actividades ADD FOREIGN KEY(persona_id) REFERENCES personas(id);
+
+INSERT INTO actividades (nombre, intensidad, estado, persona_id) VALUES
+						('PARRILLADAS', 'ALTA', true, 1);
 
 
