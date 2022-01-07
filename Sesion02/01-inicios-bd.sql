@@ -2,11 +2,12 @@ CREATE DATABASE pruebas;
 
 USE pruebas;
 -- https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+-- https://dev.mysql.com/doc/refman/8.0/en/create-table.html#create-table-types-attributes
 CREATE TABLE personas(
 	-- Ahora definimos las columnas pertenecientes a esta tabla
     -- solamente se puede tener una sola pk (primary key) por tabla y ademas una sola columna
     -- auto incrementable
-    id INT PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT, -- solamente se podran almacenar numeros
+    id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL, -- solamente se podran almacenar numeros
     nombre VARCHAR(100) NOT NULL, -- se podran almacenar caract. HASTA 100 como maximo
     dni CHAR(8) UNIQUE NOT NULL, -- siempre se almacenaran 8 caracteres
     fecha_nacimiento DATE, -- seran solamente fecha
