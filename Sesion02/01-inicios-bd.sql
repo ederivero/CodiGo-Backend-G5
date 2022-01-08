@@ -79,8 +79,48 @@ CREATE TABLE actividades (
 -- ALTER TABLE actividades ADD persona_id INT;
 -- SIRVE PARA AGREGAR UNA NUEVA RELACION FK EN UNA TABLA
 -- ALTER TABLE actividades ADD FOREIGN KEY(persona_id) REFERENCES personas(id);
+USE pruebas;
+
+SELECT * FROM actividades;
 
 INSERT INTO actividades (nombre, intensidad, estado, persona_id) VALUES
 						('PARRILLADAS', 'ALTA', true, 1);
+
+INSERT INTO actividades (nombre, intensidad, estado, persona_id) VALUES
+						('MANEJAR','MEDIA',false, 2),
+						('COCINAR','ALTA', true, 1),
+						('DISEÑAR','BAJA',false, 1);
+
+
+-- sirve para actualizar una columna existente de la tabla
+-- ALTER TABLE actividades MODIFY id INT AUTO_INCREMENT PRIMARY KEY UNIQUE;
+
+
+SELECT * FROM actividades;
+SELECT * FROM personas;
+
+INSERT INTO personas (nombre, dni, fecha_nacimiento, sexo, estado, created_at) VALUES
+                     ('Patricio', '15934757', '1991-08-01', 'helicoptero', true, now());
+
+INSERT INTO actividades (nombre, intensidad, estado) VALUES
+						('NADAR', 'ALTA', true);
+
+SELECT * FROM PERSONAS INNER JOIN actividades ON PERSONAS.id = ACTIVIDADES.persona_id; 
+
+SELECT * FROM PERSONAS LEFT JOIN actividades ON PERSONAS.id = ACTIVIDADES.persona_id;
+
+SELECT * FROM PERSONAS RIGHT JOIN actividades ON PERSONAS.id = ACTIVIDADES.persona_id;
+
+SELECT * FROM PERSONAS LEFT JOIN actividades ON PERSONAS.id = ACTIVIDADES.persona_id UNION
+SELECT * FROM PERSONAS RIGHT JOIN actividades ON PERSONAS.id = ACTIVIDADES.persona_id;
+
+-- MOSTRAR TODAS LAS PERSONAS CUYA INTENSIDAD EN LA ACTIVIDAD SEA ALTA
+-- MOSTRAR TODOS LOS REGISTROS CUYO SEXO SEA MASCULINO o SU ESTADO DE LA ACTIVIDAD SEA true
+-- MOSTRAR LAS PERSONAS QUE NO TENGAN ACTIVIDADES SOLAMENTE SU NOMBRE Y ID
+
+
+
+
+
 
 
