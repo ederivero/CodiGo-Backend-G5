@@ -4,4 +4,4 @@ python manage.py runserver > levanta el servidor de nuestro proyecto en django
 python manage.py migrate > ejecuta todas las migraciones que aun no se han realizado en la base de datos
 python manage.py showmigrations > lista todas las migraciones que hay en el proyecto y mediante [x] indicar si la migracion ya se realizo en la bd
 python manage.py makemigrations <nombre_app> > generara la migracion en base a los cambios realizados para que se vean reflejados en la bd
-python manage.py sqlmigrate <nombre_app> <num_migracion> > mostrar en lenguaje sql los cambios realizados en la migracion
+python manage.py sqlmigrate <nombre_app> <num_migracion> > mostrar en lenguaje sql los cambios realizados en la migracion python
