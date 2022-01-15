@@ -54,3 +54,11 @@ class PersonaModel(models.Model):
         upload_to= 'personas/', # es la carpeta donde se almacenera estos archivos dentro del proyecto
         null= True, 
     )
+
+    class Meta:
+        # sirve para pasar metadata al padre, a la configuracion del modelo (Model)
+        db_table = 'personas' # modificaremos el nombre con el que se guardara en la bd
+        # para modificar el ordenamiento de manera personalizada
+        # ordering= ['-email','apellido'] # asc SELECT * ...... ORDER BY email DESC, apellido ASC
+        
+
