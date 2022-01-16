@@ -1,0 +1,20 @@
+{% extends 'base.jinja' %} {% block cabecera %}
+<p>Yo soy el texto desde el inicio</p>
+
+{% if nombre == 'Eduardo' %}
+<p>Es el mejor desarrollador</p>
+{% endif %} {#
+<ul>
+  {% for habilidad in habilidades%} {% if habilidad == 'react' %}
+  <p>habilidad react</p>
+  {% else %}
+  <p>la habilidad no es react</p>
+  {% endif %}
+  <li>{{ habilidad }}</li>
+  {% endfor %}
+</ul>
+#} {% for conocimiento in conocimientos %}
+<h3>{{ conocimiento.conocimientoId }} {{ conocimiento.conocimientoNombre }}</h3>
+{% endfor %} {% endblock %} {% block footer %}
+<h1>Yo soy otro bloque</h1>
+{% endblock%}
