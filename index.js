@@ -1,6 +1,12 @@
 import express, { json } from "express";
 // const express = require("express");
-const productos = [];
+const productos = [
+  {
+    nombre: "Leche de almendras",
+    precio: 9.5,
+    estado: true,
+  },
+];
 
 const app = express();
 // middleware > es un intermediario entre todas las peticiones que se realicen a determinado endpoint o si no se indica a todas las peticiones de mi API
@@ -52,12 +58,38 @@ app
     // destructuracion
     const { id } = req.params;
     // const nuevoId = req.params.id
-    console.log(req.params);
-    res.json({
-      message: null,
-    });
+
+    // buscar ese producto por ese id (posicion del array) y si existe, retornar el producto 200
+    // si no existe retornar un estado 200 e indicar en el message que el producto no existe
+    // ayudita: que pasa si en js queremos ingresar a una posicion que no existe??
+    if (productos[id - 1]) {
+      // si existe
+      return res.status(200).json({
+        content: productos[id - 1],
+      });
+    } else {
+      return res.status(400).json({
+        message: "Producto no existe",
+        content: null,
+      });
+    }
   })
-  .put((req, res) => {})
+  .put((req, res) => {
+    const { id } = req.params;
+    if (productos[id - 1]) {
+      productos[id - 1] = req.body;
+
+      return res.status(200).json({
+        message: "Producto actualizado exitosamente",
+        content: productos[id - 1],
+      });
+    } else {
+      return res.status(400).json({
+        message: "Producto no existe",
+        content: null,
+      });
+    }
+  })
   .delete((req, res) => {});
 
 // se mantendra escuchando las consultas realizadas a este servidor mediante el puerto definido
