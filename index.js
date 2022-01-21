@@ -33,6 +33,25 @@ app.post("/producto", (req, res) => {
   }
 });
 
+// mediante el endpoint /productos devolver todos los productos en el siguiente formato:
+// {
+//     message: 'Los productos son:',
+//     content: [...]
+// }
+// estado > 200
+app.get("/productos", (req, res) => {
+  res.status(200).json({
+    message: "Los productos son:",
+    content: productos,
+  });
+});
+
+app
+  .route("/producto/:id")
+  .get((req, res) => {})
+  .put((req, res) => {})
+  .delete((req, res) => {});
+
 // se mantendra escuchando las consultas realizadas a este servidor mediante el puerto definido
 app.listen(port, () => {
   // esto sucedera cuando se levante el servidor de express
