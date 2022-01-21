@@ -1,4 +1,5 @@
 import express, { json } from "express";
+import cors from "cors";
 // const express = require("express");
 const productos = [
   {
@@ -13,6 +14,14 @@ const app = express();
 // que mi application de express podra entender toda la informacion enviada por el cliente siempre y cuando sea un json
 app.use(json());
 
+// para toda la aplicacion voy a utilizar la configuracion de los CORS
+app.use(
+  cors()
+  // {
+  // methods: ["GET", "POST"],
+  // origin:'https://www.mipagina.com'
+  // }
+);
 const port = 3000;
 
 app.get("/", (req, res) => {
