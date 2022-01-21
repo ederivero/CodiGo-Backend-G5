@@ -90,7 +90,24 @@ app
       });
     }
   })
-  .delete((req, res) => {});
+  .delete((req, res) => {
+    const { id } = req.params;
+    if (productos[id - 1]) {
+      const producto = productos[id - 1];
+
+      productos.splice(id - 1, 1);
+
+      return res.status(200).json({
+        message: "Producto eliminado exitosamente",
+        content: producto,
+      });
+    } else {
+      return res.status(400).json({
+        message: "Producto no existe",
+        content: null,
+      });
+    }
+  });
 
 // se mantendra escuchando las consultas realizadas a este servidor mediante el puerto definido
 app.listen(port, () => {
