@@ -48,7 +48,15 @@ app.get("/productos", (req, res) => {
 
 app
   .route("/producto/:id")
-  .get((req, res) => {})
+  .get((req, res) => {
+    // destructuracion
+    const { id } = req.params;
+    // const nuevoId = req.params.id
+    console.log(req.params);
+    res.json({
+      message: null,
+    });
+  })
   .put((req, res) => {})
   .delete((req, res) => {});
 
