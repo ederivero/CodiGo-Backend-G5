@@ -1,0 +1,5 @@
+npx prisma init > inicializa el proyecto con la configuracion para usar prisma
+
+npx prisma migrate dev > busca la base de datos y valida los campos que tenemos en el schema con los de la bd y si hay cambios generara un nueva migracion
+
+npx prisma migrate reset > reinicia la base de datos volviendo a aplicar todas las migraciones y toda la informacion se perdera
