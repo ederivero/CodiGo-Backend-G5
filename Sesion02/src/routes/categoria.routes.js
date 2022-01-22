@@ -1,6 +1,9 @@
 import { Router } from "express";
-import { crearCategoria } from "../controllers/categoria.controller.js";
+import {
+  crearCategoria,
+  listarCategoria,
+} from "../controllers/categoria.controller.js";
 
 export const categoriaRouter = Router();
 
-categoriaRouter.route("/categoria").post(crearCategoria);
+categoriaRouter.route("/categoria").post(crearCategoria).get(listarCategoria);
