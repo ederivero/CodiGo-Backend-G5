@@ -1,0 +1,3 @@
+psql -U <username> -h <host> -d <base_de_datos> -p <puerto> => la forma para conectarme a la base de datos
+\l => listaba todas las bases de datos de ese servidor
+\c <base_de_datos> => cambia a la base de datos seleccionada

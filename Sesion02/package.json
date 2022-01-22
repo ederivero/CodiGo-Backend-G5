@@ -1,0 +1,20 @@
+{
+  "name": "minimarket",
+  "version": "1.0.0",
+  "description": "backend de un minimarket usando prisma",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "prisma",
+    "express"
+  ],
+  "author": "eduardo de rivero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "prisma": "^3.8.1"
+  }
+}
