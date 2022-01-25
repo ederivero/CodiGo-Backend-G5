@@ -7,3 +7,4 @@ entorno_django
 .env
 __pycache__
 node_modules/
+.env.test

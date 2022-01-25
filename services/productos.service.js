@@ -6,7 +6,12 @@ export class ProductosServices {
   }
 
   static async create(input) {
-    const nuevoProducto = await prisma.producto.create({ data: input });
-    return nuevoProducto;
+    try {
+      const nuevoProducto = await prisma.producto.create({ data: input });
+      return nuevoProducto;
+    } catch (e) {
+      // console.log(e);
+      throw Error("Error al crear el producto");
+    }
   }
 }

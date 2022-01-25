@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "prisma:migrate:run:test": "dotenv -e .env.test -- prisma migrate deploy"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,10 @@
   "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
   "dependencies": {
     "@prisma/client": "^3.8.1",
+    "dotenv-cli": "^4.1.1",
     "express": "^4.17.2",
+    "lodash.snakecase": "^4.1.1",
+    "pluralize": "^8.0.0",
     "prisma": "^3.8.1"
   },
   "devDependencies": {
