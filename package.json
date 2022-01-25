@@ -1,11 +1,11 @@
 {
-  "name": "minimarket",
+  "name": "test-express",
   "version": "1.0.0",
-  "description": "proyecto de minimarkets",
+  "description": "ejemplo de test con nodejs",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
@@ -14,9 +14,9 @@
     "url": "git+https://github.com/ederivero/CodiGo-Backend-G5.git"
   },
   "keywords": [
-    "nodejs",
+    "jest",
     "express",
-    "middlewares"
+    "backend"
   ],
   "author": "eduardo de rivero",
   "license": "ISC",
@@ -25,10 +25,11 @@
   },
   "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.17.2"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.7",
     "nodemon": "^2.0.15"
   }
 }
