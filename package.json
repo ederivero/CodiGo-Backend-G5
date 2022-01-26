@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "backend para una cafeteria",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/ederivero/CodiGo-Backend-G5/issues"
   },
-  "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme"
+  "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
