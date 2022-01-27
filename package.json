@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
   "dependencies": {
+    "@prisma/client": "^3.8.1",
     "express": "^4.17.2",
     "prisma": "^3.8.1"
   },

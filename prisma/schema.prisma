@@ -10,11 +10,54 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#model-field-scalar-types
 model Producto {
-  id     Int    @id @unique @default(autoincrement())
-  nombre String
-  precio Float
-  imagen String
+  id             Int          @id @unique @default(autoincrement())
+  nombre         String       @db.VarChar(100)
+  precio         Float
+  imagen         String
+  tipoProductoId Int          @map(name: "tipo_producto_id")
+  tipoProducto   TipoProducto @relation(fields: [tipoProductoId], references: [id])
 
   @@map(name: "productos")
+}
+
+model TipoProducto {
+  id        Int        @id @unique @default(autoincrement())
+  nombre    String     @unique
+  productos Producto[]
+
+  @@map(name: "tipo_productos")
+}
+
+model Permiso {
+  id          Int           @id @unique @default(autoincrement())
+  tipoUsuario TipoUsuario   @map(name: "tipo_usuario")
+  accion      PermisoAccion
+  tabla       String
+
+  @@map(name: "permisos")
+}
+
+model Usuario {
+  id          Int         @id @unique @default(autoincrement())
+  nombre      String
+  correo      String
+  password    String
+  tipoUsuario TipoUsuario @map(name: "tipo_usuario")
+
+  @@map(name: "usuarios")
+}
+
+enum TipoUsuario {
+  ADMIN
+  CLIENTE
+  SUPERADMIN
+}
+
+enum PermisoAccion {
+  CREATE
+  DELETE
+  READ
+  UPDATE
 }
