@@ -42,7 +42,7 @@ model Permiso {
 model Usuario {
   id          Int         @id @unique @default(autoincrement())
   nombre      String
-  correo      String
+  correo      String      @unique
   password    String
   tipoUsuario TipoUsuario @map(name: "tipo_usuario")
 
