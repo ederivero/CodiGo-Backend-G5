@@ -6,7 +6,7 @@ const { PrismaClient } = Prisma;
 const prisma = new PrismaClient();
 
 async function main() {
-  await Promise.all(adminSeed);
+  await Promise.all([adminSeed(prisma)]);
 }
 
 main()

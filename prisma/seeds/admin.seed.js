@@ -8,6 +8,7 @@ export default async (prisma) => {
     },
     update: {},
     where: {
+      // solamente se pueden declarar las columnas que sean unicas (unique) o las pk
       correo: "ederiveroman@gmail.com",
     },
   });

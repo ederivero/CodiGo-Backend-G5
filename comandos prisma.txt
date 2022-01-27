@@ -1,0 +1,4 @@
+npx prisma migrate deploy --preview-feature > ejecutara todas las migraciones faltantes a realizarse en la base de datos
+npx prisma migrate dev > crea una nueva migracion
+npx prisma migrate reset > reinicia la base de datos
+npx prisma format > formatea el archivo schema.prisma con el formato correcto

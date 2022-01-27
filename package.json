@@ -32,5 +32,8 @@
   "devDependencies": {
     "dotenv-cli": "^4.1.1",
     "nodemon": "^2.0.15"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
