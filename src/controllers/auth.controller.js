@@ -5,8 +5,7 @@ import { loginDto } from "../services/dtos/request/login.dto.js";
 export async function login(req, res) {
   const { correo, password } = req.body;
   try {
-    const validacion = loginDto({ email: correo, password });
-    console.log(validacion);
+    loginDto({ correo, password });
 
     const result = await AuthService.login({ correo, password });
 
