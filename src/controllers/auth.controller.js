@@ -1,9 +1,13 @@
 // export const login = async ()=>{...}
 import { AuthService } from "../services/auth.service.js";
+import { loginDto } from "../services/dtos/request/login.dto.js";
 
 export async function login(req, res) {
   const { correo, password } = req.body;
   try {
+    const validacion = loginDto({ email: correo, password });
+    console.log(validacion);
+
     const result = await AuthService.login({ correo, password });
 
     res.status(200).json(result);

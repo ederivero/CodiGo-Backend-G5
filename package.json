@@ -29,7 +29,8 @@
     "bcrypt": "^5.0.1",
     "express": "^4.17.2",
     "morgan": "^1.10.0",
-    "prisma": "^3.8.1"
+    "prisma": "^3.8.1",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "dotenv-cli": "^4.1.1",
