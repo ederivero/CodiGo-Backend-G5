@@ -17,7 +17,7 @@ export async function crearTipoProducto(req, res) {
 
   // esto verificara que la token sea valida y que ademas su contraseña sea correcta, si no lo es emitira un error, si la token es valida retornara el payload (parte intermedia de la token)
   try {
-    const data = jwt.verify(token, "Arriba Peru");
+    const data = jwt.verify(token, process.env.JWT_SECRET);
     console.log(data);
 
     const resultado = await TipoProductoService.crearTipoProducto({
