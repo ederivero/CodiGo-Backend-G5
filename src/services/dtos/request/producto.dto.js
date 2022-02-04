@@ -5,11 +5,11 @@ export function productoDto({ nombre, precio, tipoProducto }) {
     throw Error("El nombre del producto no puede estar vacio");
   }
 
-  if (!validator.isFloat(precio)) {
+  if (!validator.isFloat(precio.toString())) {
     throw Error("El precio solo puede contener numeros");
   }
 
-  if (!validator.isNumeric(tipoProducto)) {
+  if (!validator.isNumeric(tipoProducto.toString())) {
     throw Error("El tipoProducto debe ser un numero");
   }
 
