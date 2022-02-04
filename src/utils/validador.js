@@ -25,8 +25,11 @@ export function validarUsuario(req, res, next) {
   if (resultado instanceof jwt.JsonWebTokenError) {
     return res.status(403).json({
       message: "La token es invalida, intente nuevamente",
+      razon: resultado.message,
     });
   }
+
+  req.user = { nombre: "eduardo" };
 
   next();
 }
