@@ -19,7 +19,7 @@ export class AuthService {
         { id: usuarioEncontrado.id, mensaje_oculto: "Hola soy un mensaje" },
         process.env.JWT_SECRET,
         // se puede pasar un valor numerico (que sera en segundos) o un string indicando el formato de la sgte manera '7d' (7 dias) '10h' (10 horas), '2 days' (2 dias), si le ponemos '100' entonces sera un valor expresado en milisegundos
-        { expiresIn: 100 }
+        { expiresIn: "4h" }
       );
 
       return { message: "Si es el usuario", token };
