@@ -9,12 +9,12 @@ export function archivoDto({ productoId, contentType, ext, filename }) {
   }
 
   console.log(contentType);
-  contenidosValidos = ["image/png", "image/jpg", "image/jpeg"];
+  // contenidosValidos = ["image/png", "image/jpg", "image/jpeg"];
   // van a iterar ese array y si hay una coincidencia incrementaran una variable x=0 y si al final de la iteracion la variable sigue estando en 0 (su valor inicial) entonces concluiremos que no esta dentro de los contenidos validos y emitiremos el error
   // usar forEach o forIn
   if (
-    contentType !== "image/png" ||
-    contentType !== "image/jpg" ||
+    contentType !== "image/png" &&
+    contentType !== "image/jpg" &&
     contentType !== "image/jpeg"
   ) {
     throw Error(
@@ -25,8 +25,8 @@ export function archivoDto({ productoId, contentType, ext, filename }) {
   // hacer lo mismo con las extensiones
 
   if (
-    !validator.equals(ext, "jpg") ||
-    !validator.equals(ext, "png") ||
+    !validator.equals(ext, "jpg") &&
+    !validator.equals(ext, "png") &&
     !validator.equals(ext, "jpeg")
   ) {
     throw Error("La ext solo puede ser: jpg, png, jpeg");
@@ -36,5 +36,5 @@ export function archivoDto({ productoId, contentType, ext, filename }) {
     throw Error("El filename no puede estar vacio");
   }
 
-  return { productId, contentType, ext, filename };
+  return { productoId, contentType, ext, filename };
 }
