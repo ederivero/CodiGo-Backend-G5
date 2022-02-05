@@ -62,4 +62,12 @@ export class ProductoService {
       producto: productoConImagen,
     };
   }
+
+  static async listarProductos() {
+    const productos = await prisma.producto.findMany({
+      include: { tipoProducto: true },
+    });
+
+    return { productos };
+  }
 }

@@ -27,3 +27,9 @@ export async function devolver(req, res) {
 
   return res.json(resultado);
 }
+
+export async function devolverProductos(req, res) {
+  const resultado = await ProductoService.listarProductos();
+
+  return res.json(resultado);
+}
