@@ -1,5 +1,6 @@
 import Prisma from "@prisma/client";
 import { prisma } from "../prisma.js";
+import { ArchivosService } from "./archivos.service.js";
 
 export class ProductoService {
   static async crearProducto(data) {
@@ -30,5 +31,35 @@ export class ProductoService {
         };
       }
     }
+  }
+
+  static async devolverProducto(id) {
+    // buscar ese producto y si no existe retornar lo sgte:
+    // {
+    //   message:'No existe el producto con id 1'
+    // }
+    const producto = await prisma.producto.findUnique({
+      where: { id: +id },
+      // si usamos el include no podemos usar el select y viseversa
+      include: { tipoProducto: true },
+      rejectOnNotFound: false,
+      // select: {nombre: true}
+    });
+
+    // if(!producto)
+    if (producto === undefined) {
+      return {
+        message: `No existe el producto con el id ${id}`,
+      };
+    }
+
+    const productoConImagen = {
+      ...producto,
+      imagen: ArchivosService.devolverURL(producto.imagen),
+    };
+
+    return {
+      producto: productoConImagen,
+    };
   }
 }

@@ -15,3 +15,15 @@ export async function crear(req, res) {
     });
   }
 }
+
+export async function devolver(req, res) {
+  // 1. req.params
+  // producto/1
+
+  // 2. req.query
+  // producto?email=e@c.com&nombre=eduardo&apellido=juarez
+  const { id } = req.params;
+  const resultado = await ProductoService.devolverProducto(id);
+
+  return res.json(resultado);
+}
