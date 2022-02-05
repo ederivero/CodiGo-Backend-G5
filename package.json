@@ -7,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "start:dev": "dotenv -e .env -- nodemon src/index.js"
+    "start:dev": "dotenv -e .env -- nodemon src/index.js",
+    "crear_migracion":"prisma migrate dev --preview-feature",
+    "correr_migraciones":"prisma migrate deploy --preview-feature",
+    "reset_db":"prisma migrate reset --preview-feature --skip-seed"
   },
   "repository": {
     "type": "git",
