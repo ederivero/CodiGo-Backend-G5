@@ -33,3 +33,10 @@ export async function devolverProductos(req, res) {
 
   return res.json(resultado);
 }
+
+export async function eliminarProducto(req, res) {
+  const { id } = req.params;
+  const resultado = await ProductoService.eliminarProducto(+id);
+
+  return res.status(201).json(resultado);
+}

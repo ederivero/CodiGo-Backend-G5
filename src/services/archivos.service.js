@@ -50,4 +50,20 @@ export class ArchivosService {
       Expires: +process.env.AWS_SIGNED_EXPIRES_IN,
     });
   }
+
+  static eliminarArchivo(path) {
+    s3.deleteObject(
+      { Bucket: process.env.AWS_BUCKET, Key: path },
+      (error, data) => {
+        if (error) {
+          console.log("el error es");
+          console.log(error);
+        }
+        if (data) {
+          console.log("la data es");
+          console.log(data);
+        }
+      }
+    );
+  }
 }
