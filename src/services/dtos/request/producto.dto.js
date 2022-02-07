@@ -13,5 +13,5 @@ export function productoDto({ nombre, precio, tipoProducto }) {
     throw Error("El tipoProducto debe ser un numero");
   }
 
-  return { nombre, precio, tipoProductoId: tipoProducto };
+  return { nombre, precio: +precio, tipoProductoId: +tipoProducto };
 }

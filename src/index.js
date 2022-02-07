@@ -4,12 +4,13 @@ import { authRouter } from "./routes/auth.routes.js";
 import { tipoProductoRouter } from "./routes/tipoProducto.routes.js";
 import { productoRouter } from "./routes/producto.routes.js";
 import { archivoRouter } from "./routes/archivo.routes.js";
+import cors from "cors";
 
 const app = express();
 
 app.use(morgan("dev"));
 app.use(json());
-
+app.use(cors());
 // defino mis rutas
 app.use(authRouter);
 app.use(tipoProductoRouter);
