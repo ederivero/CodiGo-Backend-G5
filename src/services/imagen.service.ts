@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 const BASE_URL = "http://127.0.0.1:3001";
 const axiosRequest = axios.create({ baseURL: BASE_URL });
@@ -15,13 +15,9 @@ interface ICrearImagenResponse {
 }
 
 export const crearImagen = (data: ICrearImagen) => {
-  return axiosRequest.post<unknown, AxiosResponse<ICrearImagenResponse>>(
-    "/archivo",
-    data,
-    {
-      headers: { Authorization: `Bearer ${localStorage.getItem("user")}` },
-    }
-  );
+  return axiosRequest.post<ICrearImagenResponse>("/archivo", data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("user")}` },
+  });
 };
 
 export const subirImagen = (url: string, contentType: string, file: any) => {

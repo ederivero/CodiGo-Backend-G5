@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 const BASE_URL = "http://127.0.0.1:3001";
 const axiosRequest = axios.create({ baseURL: BASE_URL });
@@ -44,21 +44,15 @@ interface ICrearProductoResponse {
 }
 
 export const getProductos = () => {
-  return axiosRequest.get<any, AxiosResponse<IResponseProductos>>("/productos");
+  return axiosRequest.get<IResponseProductos>("/productos");
 };
 
 export const getTipoProductos = () => {
-  return axiosRequest.get<unknown, AxiosResponse<ITipoProductosResponse>>(
-    "/tipo-producto"
-  );
+  return axiosRequest.get<ITipoProductosResponse>("/tipo-producto");
 };
 
 export const crearProducto = (data: ICrearProducto) => {
-  return axiosRequest.post<unknown, AxiosResponse<ICrearProductoResponse>>(
-    "/producto",
-    data,
-    {
-      headers: { Authorization: `Bearer ${localStorage.getItem("user")}` },
-    }
-  );
+  return axiosRequest.post<ICrearProductoResponse>("/producto", data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("user")}` },
+  });
 };
