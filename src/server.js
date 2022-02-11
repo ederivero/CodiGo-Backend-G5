@@ -8,7 +8,7 @@ const PORT = process.env.PORT ?? 3000;
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
   try {
-    await mongoose.connect("mongodb://localhost:27017");
+    await mongoose.connect(process.env.MONGODB);
     console.log("Se conecto a la base de datos 🔌");
   } catch (error) {
     console.log(error);
