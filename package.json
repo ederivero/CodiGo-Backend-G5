@@ -1,0 +1,34 @@
+{
+  "name": "chifa",
+  "version": "1.0.0",
+  "description": "backend del chifa ka lu wantan",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "dotenv -e .env -- nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ederivero/CodiGo-Backend-G5.git"
+  },
+  "keywords": [
+    "express",
+    "mongo",
+    "nosql",
+    "multer"
+  ],
+  "author": "eduardo derivero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ederivero/CodiGo-Backend-G5/issues"
+  },
+  "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^5.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
