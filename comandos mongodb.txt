@@ -1,0 +1,8 @@
+db > mostrara en que base de datos me encuentro
+use database_name > cambiaremos a esa bd y si no existe la creara
+db.tabla.insertOne({....}) > insertara un nuevo registro a una coleccion y si no existe creara dicha coleccion ( COLECCION = TABLA )
+db.tabla.insertMany([{...}, {...}]) > insertara muchos
+db.tabla.find() > SELECT * FROM tabla;
+db.tabla.find({col: /l/ }) > LIKE '%l%'
+db.tabla.find({col: /p$/ }) > LIKE '%p'
+db.tabla.find({col: /^c/ }) > LIKE 'c%'
