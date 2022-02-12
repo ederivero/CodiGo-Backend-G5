@@ -2,7 +2,10 @@ import express, { json } from "express";
 import mongoose from "mongoose";
 
 const app = express();
-app.use(json());
+// sirve para indicar a mi aplicacion de Express que puedo recibir la informacion en el body mediante un formato JSON
+// si no definimos nada, el body siempre llegara undefined porque no entendera que es lo que nos esta mandando el frontend
+// se suele llamar como Body Parser
+app.use(json()); // > Content-Type : application/json
 const PORT = process.env.PORT ?? 3000;
 
 app.listen(PORT, async () => {
