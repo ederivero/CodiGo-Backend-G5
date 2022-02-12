@@ -5,9 +5,21 @@ export const imagenRouter = Router();
 
 // sirve para indicar el formato en la cual se va a almacenar el archivo entrante
 // puede ser en disco (disco duro) o en memoria (RAM)
-const almacenamiento = Multer.diskStorage({ destination: "media/" });
+const almacenamiento = Multer.diskStorage({
+  destination: "src/media/",
+  // esto nos permite cambiar el nombre con el cual se guardara el archivo en nuestro servidor
+  filename: (req, archivo, callback) => {
+    const nombre = archivo.originalname;
+    // como hacemos para evitar que si esa imagen ya existe no se sobre escriba??
+    callback(null, nombre);
+  },
+});
 
-const multerMiddleware = Multer({ storage: almacenamiento });
+const multerMiddleware = Multer({
+  storage: almacenamiento,
+  // bytes * 1024 > 1 kb * 1024 > 1mb * 1024 > 1gb
+  limits: { fileSize: 5 * 1024 * 1024 },
+});
 
 // any > aceptara todos los archivos y mas de uno
 // none > aceptara valores en formato texto (no aceptara archivos)

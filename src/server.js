@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
 import { categoriaRouter } from "./routes/categorias.routes.js";
+import { imagenRouter } from "./routes/imagen.routes.js";
 
 const app = express();
 // sirve para indicar a mi aplicacion de Express que puedo recibir la informacion en el body mediante un formato JSON
@@ -11,6 +12,7 @@ const PORT = process.env.PORT ?? 3000;
 
 // definimos las rutas
 app.use(categoriaRouter);
+app.use(imagenRouter);
 // fin de la definicion
 
 app.listen(PORT, async () => {
