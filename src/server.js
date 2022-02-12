@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
+import { categoriaRouter } from "./routes/categorias.routes.js";
 
 const app = express();
 // sirve para indicar a mi aplicacion de Express que puedo recibir la informacion en el body mediante un formato JSON
@@ -7,6 +8,10 @@ const app = express();
 // se suele llamar como Body Parser
 app.use(json()); // > Content-Type : application/json
 const PORT = process.env.PORT ?? 3000;
+
+// definimos las rutas
+app.use(categoriaRouter);
+// fin de la definicion
 
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
