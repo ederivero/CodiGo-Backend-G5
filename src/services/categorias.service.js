@@ -10,4 +10,10 @@ export class CategoriaService {
       console.error(error);
     }
   }
+
+  static async devolver() {
+    // select * from categorias;
+    const categorias = await Categoria.find();
+    return categorias;
+  }
 }

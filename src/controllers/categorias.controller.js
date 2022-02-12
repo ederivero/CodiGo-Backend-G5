@@ -15,3 +15,9 @@ export async function crearCategoria(req, res) {
     });
   }
 }
+
+export async function devolverCategorias(req, res) {
+  const resultado = await CategoriaService.devolver();
+
+  return res.json(resultado);
+}
