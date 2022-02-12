@@ -1,6 +1,7 @@
 import { Router } from "express";
 import Multer from "multer";
 import { nanoid } from "nanoid";
+import { subirImagen } from "../controllers/imagen.controller.js";
 export const imagenRouter = Router();
 
 // sirve para indicar el formato en la cual se va a almacenar el archivo entrante
@@ -11,6 +12,7 @@ const almacenamiento = Multer.diskStorage({
   filename: (req, archivo, callback) => {
     const id = nanoid(5);
     const nombre = archivo.originalname;
+
     // como hacemos para evitar que si esa imagen ya existe no se sobre escriba??
     callback(null, id + nombre);
   },
@@ -29,10 +31,7 @@ const multerMiddleware = Multer({
 // single(campo) > acepta UN solo archivo mediante esa llave
 // NOTA: todos los archivos se almacenaran en el request (req) pero en el caso de single sera req.file mientras que en los demas sera req.files
 imagenRouter.post(
-  "/subir-imagen",
+  "/subir-imagen/:id",
   multerMiddleware.single("imagen"),
-  (req, res) => {
-    console.log(req.file);
-    return res.status(200).send();
-  }
+  subirImagen
 );
