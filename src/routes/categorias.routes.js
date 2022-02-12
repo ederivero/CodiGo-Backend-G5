@@ -6,7 +6,6 @@ import {
 
 export const categoriaRouter = Router();
 
-categoriaRouter
-  .route("/categoria")
-  .post(crearCategoria)
-  .get(devolverCategorias);
+categoriaRouter.route("/categoria").post(crearCategoria);
+
+categoriaRouter.get("/categorias", devolverCategorias);
