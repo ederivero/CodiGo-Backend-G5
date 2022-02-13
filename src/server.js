@@ -2,9 +2,12 @@ import express, { json } from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import sgMail from "@sendgrid/mail";
 import { categoriaRouter } from "./routes/categorias.routes.js";
 import { imagenRouter } from "./routes/imagen.routes.js";
 import { usuarioRouter } from "./routes/usuario.routes.js";
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // buscara la ubicacion de nuestro proyecto en el servidor (maquina) en la cual se este alojando
 // siempre que deseen obtener la ubicacion de su proyecto en el servidor tendran que hacerlo de esta manera, NOTA: siempre que esten utilizando un type:module en el package.json

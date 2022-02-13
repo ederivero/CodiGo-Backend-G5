@@ -21,3 +21,9 @@ export async function crearUsuario(req, res) {
     });
   }
 }
+
+export async function olvidePassword(req, res) {
+  const resultado = await usuarioService.olvidePassword(req.body.correo);
+
+  return res.status(204).send();
+}
