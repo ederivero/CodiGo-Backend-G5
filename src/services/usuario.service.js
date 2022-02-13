@@ -55,5 +55,7 @@ export class usuarioService {
     console.log(tokenDecodificada);
 
     // verificar si existe ese usuario (tokenDecodificada.correo) y si existe entonces cambiar la contraseña con el nuevo password, hashear la contraseña
+
+    // implementar el controlador y que la ruta sea /reset-password Method POST
   }
 }
