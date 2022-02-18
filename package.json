@@ -24,7 +24,8 @@
   "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "mongoose": "^6.2.2"
+    "mongoose": "^6.2.2",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "dotenv-cli": "^5.0.0",

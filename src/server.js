@@ -1,5 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
+import { Producto } from "./models/producto.model.js";
+import { Categoria } from "./models/categoria.model.js";
+import { CategoriaProducto } from "./models/categoria_producto.model.js";
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
