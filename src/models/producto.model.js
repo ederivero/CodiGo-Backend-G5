@@ -4,7 +4,7 @@ const productoSchema = new mongoose.Schema({
   nombre: {
     type: mongoose.Schema.Types.String,
     required: true,
-    maxlength: 10,
+    maxlength: 100,
   },
   precio: {
     type: mongoose.Schema.Types.Decimal128,

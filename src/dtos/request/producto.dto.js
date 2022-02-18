@@ -6,12 +6,16 @@ export function productoDto({ nombre, precio, tipo, estado }) {
     throw Error("el nombre no puede estar vacio");
   }
   // precio no puede ser negativo
-  if (!validator.isDecimal(precio) && +precio < 0) {
+  if (!validator.isDecimal(precio.toString()) && +precio < 0) {
     throw Error("El precio no puede ser negativo");
   }
 
+  // if (+precio < 0) {
+  //   throw Error("El precio no puede ser negativo");
+  // }
+
   // tipo puede ser "ABARROTES", "HIGIENE PERSONAL", "OTROS" (no usar validator)
-  if (tipo !== "ABARROTES" || tipo !== "HIGIENE PERSONAL" || tipo !== "OTROS") {
+  if (tipo !== "ABARROTES" && tipo !== "HIGIENE PERSONAL" && tipo !== "OTROS") {
     throw Error('el tipo debe ser "ABARROTES", "HIGIENE PERSONAL", "OTROS"');
   }
 

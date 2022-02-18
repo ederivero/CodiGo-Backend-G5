@@ -1,11 +1,13 @@
-import express from "express";
+import express, { json } from "express";
 import mongoose from "mongoose";
-import { Producto } from "./models/producto.model.js";
-import { Categoria } from "./models/categoria.model.js";
-import { CategoriaProducto } from "./models/categoria_producto.model.js";
+import { productoRouter } from "./routes/producto.routes.js";
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
+
+app.use(json());
+
+app.use(productoRouter);
 
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo exitosamente en el puerto ${PORT}`);
