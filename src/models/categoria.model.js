@@ -12,4 +12,9 @@ const categoriaSchema = new mongoose.Schema({
     default: "#000000",
     maxlength: 7,
   },
+  categoriaProducto: {
+    type: [mongoose.Schema.Types.ObjectId],
+  },
 });
+
+export const Categoria = mongoose.model("categoria", categoriaSchema);

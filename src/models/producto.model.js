@@ -17,6 +17,10 @@ const productoSchema = new mongoose.Schema({
     default: "OTROS",
   },
   estado: mongoose.Schema.Types.Boolean,
+
+  categoriaProducto: {
+    type: [mongoose.Schema.Types.ObjectId],
+  },
 });
 
 export const Producto = mongoose.model("productos", productoSchema);
