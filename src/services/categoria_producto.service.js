@@ -50,5 +50,7 @@ export class CategoriaProductoService {
         ],
       }
     );
+
+    return nuevoRegistro;
   }
 }
