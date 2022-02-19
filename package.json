@@ -24,6 +24,7 @@
   "homepage": "https://github.com/ederivero/CodiGo-Backend-G5#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "mercadopago": "^1.5.12",
     "mongoose": "^6.2.2",
     "validator": "^13.7.0"
   },
