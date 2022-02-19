@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
+import { categoriaRouter } from "./routes/categoria.routes.js";
 import { productoRouter } from "./routes/producto.routes.js";
 
 const app = express();
@@ -8,6 +9,7 @@ const PORT = process.env.PORT ?? 3000;
 app.use(json());
 
 app.use(productoRouter);
+app.use(categoriaRouter);
 
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo exitosamente en el puerto ${PORT}`);
