@@ -12,7 +12,11 @@ app.use(productoRouter);
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo exitosamente en el puerto ${PORT}`);
   try {
-    await mongoose.connect(process.env.DATABASE_URL);
+    await mongoose.connect(
+      process.env.NODE_ENV === "production"
+        ? process.env.DATABASE_URL
+        : process.env.DATABASE_URL_DEV
+    );
     console.log("Bd sincronizada exitosamente");
   } catch (error) {
     console.log("Error al conectarse con la bd ❌");
