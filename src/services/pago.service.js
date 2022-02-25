@@ -38,16 +38,36 @@ export class PagoService {
           },
           email: clienteEncontrado.correo,
         },
-        payment_methods: [],
+        payment_methods: {
+          // https://api.mercadopago.com/v1/payment_methods
+          default_installments: 2, // el numero de cuotas por defecto que aparecera en el formulario
+          installments: 3, // maximo numero de cuotas que puede sacar un usuuario con tarjeta de credito
+          excluded_payment_methods: [
+            {
+              id: "diners",
+            },
+            {
+              id: "debvisa",
+            },
+          ],
+          excluded_payment_types: [
+            // debit_card credit_card atm
+            {
+              id: "atm",
+            },
+          ],
+        },
         items: itemsMP,
         // Si la transaccion fue exitosa o pendiente de pago entonces nos redireccionara automaticamente a la pagina en cuestion
         auto_return: "approved",
         // son las url que me llevaran al sitio si el pago fue :
         back_urls: {
-          success: "http://localhost:3000/exito",
-          pending: "http://localhost:3000/pendiente",
-          failure: "http://localhost:3000/fallo",
+          success: `${process.env.DOMINIO}/exito`,
+          pending: `${process.env.DOMINIO}/pendiente`,
+          failure: `${process.env.DOMINIO}/fallo`,
         },
+        // Sera donde mercadopago hara el uso de notificaciones para informarme sobre el estado del pago
+        notification_url: `${process.env.DOMINIO}/notificaciones`,
       });
 
       return {
