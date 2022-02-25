@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { categoriaRouter } from "./routes/categoria.routes.js";
 import { categoriaProductoRouter } from "./routes/categoria_producto.routes.js";
 import { productoRouter } from "./routes/producto.routes.js";
+import { pagoRouter } from "./routes/pago.routes.js";
 import mercadopago from "mercadopago";
 
 // access_token > es la token que se va a crear por cada negocio y esto servira a MP para saber a que negocio tiene que depositar el monto cobrado
@@ -20,6 +21,7 @@ app.use(json());
 app.use(productoRouter);
 app.use(categoriaRouter);
 app.use(categoriaProductoRouter);
+app.use(pagoRouter);
 
 app.listen(PORT, async () => {
   console.log(`Servidor corriendo exitosamente en el puerto ${PORT}`);
