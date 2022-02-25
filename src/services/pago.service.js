@@ -13,7 +13,7 @@ export class PagoService {
             street_name: "Calle Los Platanitos",
             street_number: 123,
           },
-          email: "ederiveroman@gmail.com",
+          email: "test_user_46542185@testuser.com",
           identification: {
             type: "DNI",
             number: "45678945",
