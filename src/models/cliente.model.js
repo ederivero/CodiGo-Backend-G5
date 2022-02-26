@@ -15,6 +15,14 @@ const clienteSchema = new mongoose.Schema({
   apellido: { type: mongoose.Schema.Types.String },
   correo: { type: mongoose.Schema.Types.String, unique: true },
   direccion: { type: direccionSchema }, // direccionSchema
+  tipo_documento: {
+    enum: ["DNI", "RUC", "CE", "PASAPORTE"],
+    type: mongoose.Schema.Types.String,
+    default: "DNI",
+  },
+  numero_documento: {
+    type: mongoose.Schema.Types.String,
+  },
 });
 
 export const Cliente = mongoose.model("clientes", clienteSchema);
