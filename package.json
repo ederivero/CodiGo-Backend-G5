@@ -27,7 +27,8 @@
     "express": "^4.17.3",
     "mercadopago": "^1.5.12",
     "mongoose": "^6.2.2",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "dotenv-cli": "^5.0.0",
