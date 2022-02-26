@@ -10,7 +10,7 @@ export async function crearPreferencia(req, res) {
 
 export function recibirNotificacion(req, res) {
   console.log("los query params son:");
-  console.log(req.params);
+  console.log(req.query);
 
   PagoService.recibirNotificacion(req.body);
 
