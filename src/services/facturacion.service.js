@@ -1,6 +1,7 @@
 import { Cliente } from "../models/cliente.model.js";
 import { Comprobante } from "../models/comprobante.model.js";
 import { Producto } from "../models/producto.model.js";
+import fetch from "node-fetch";
 
 export class FacturacionService {
   static async generarComprobante(data, tipo) {
@@ -99,7 +100,7 @@ export class FacturacionService {
         ? "0" + fecha.getMonth() + 1
         : fecha.getMonth() + 1 + "-" + fecha.getFullYear();
 
-    const peticionNubefact = {
+    const bodyNubefact = {
       operacion: "generar_comprobante",
       tipo_de_comprobante,
       serie,
@@ -120,6 +121,21 @@ export class FacturacionService {
       total,
       total_gravada: total / 1.18,
       total_igv: total - total_gravada,
+    };
+
+    const resultado = await fetch(process.env.NUBEFACT_URL, {
+      method: "POST",
+      body: bodyNubefact,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: process.env.NUBEFACT_TOKEN,
+      },
+    });
+
+    console.log(resultado);
+
+    return {
+      message: "ok",
     };
   }
 
