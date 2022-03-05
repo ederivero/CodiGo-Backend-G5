@@ -1,0 +1,26 @@
+{
+  "name": "backend-tareas",
+  "version": "1.0.0",
+  "description": "backend de un proyecto de tareas con estado",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "dotenv -e .env -- nodemon ./src/server.js"
+  },
+  "keywords": [
+    "backend",
+    "mongoose",
+    "express",
+    "nodejs"
+  ],
+  "author": "eduardo de rivero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^5.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
