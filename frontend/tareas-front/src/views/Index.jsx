@@ -3,7 +3,7 @@ import {useNavigate, Link} from 'react-router-dom'
 
 export const Index = () => {
     const navigate = useNavigate()
-
+    
     const login = (e)=>{
         navigate('/login')
     }

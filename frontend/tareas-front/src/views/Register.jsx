@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { createUser } from '../services/user.service';
 
 export const Register = () => {
   const paises = ["BRAZIL",
@@ -15,6 +17,7 @@ export const Register = () => {
   "VENEZUELA",
   "SURINAM"]
 
+  const navigate = useNavigate()
   const [form, setForm] = useState({
     nombre:'',
     apellido:'',
@@ -28,9 +31,24 @@ export const Register = () => {
     
   }
 
-  const crearPersona = (e) =>{
+  const crearPersona = async (e) =>{
     e.preventDefault();
-    console.log(e);
+
+    try{
+      const {data, status} = await createUser(form)
+      console.log(status);
+      console.log(data);
+      localStorage.setItem('token', data.token)
+      
+      alert('Se completo tu registro exitosamente')
+      navigate('/tareas')
+    }catch(e){
+      // Aca ingresar cuando usemos axios y el status sea diferente que 2xx o 1xx
+      // Para ingresar a la respuesta del error (mal request) tendremos que ingresar a su atributo response
+      // console.log(e.response);
+
+      alert(e.response.data.message)
+    }
   }
 
   return (
