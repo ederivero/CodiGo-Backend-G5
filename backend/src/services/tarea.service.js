@@ -23,6 +23,7 @@ export class TareaService {
   }
 
   static async listaTareasDelUsuario(usuarioId) {
+    console.log(usuarioId);
     const result = await Tarea.find({ usuarioId });
 
     return result;

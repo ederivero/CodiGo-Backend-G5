@@ -27,7 +27,8 @@ export const validarUsuario = (req, res, next) => {
   const resultado = verificarToken(token);
 
   if (typeof resultado === "object") {
-    const { id } = token;
+    const { id } = resultado;
+
     req.user = id;
 
     next();
