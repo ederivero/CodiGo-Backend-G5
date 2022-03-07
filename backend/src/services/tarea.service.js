@@ -1,5 +1,5 @@
-import { Tarea } from "../models/tarea.model";
-import { Usuario } from "../models/usuario.model";
+import { Tarea } from "../models/tarea.model.js";
+import { Usuario } from "../models/usuario.model.js";
 
 export class TareaService {
   static async crearTarea(data, usuarioId) {
